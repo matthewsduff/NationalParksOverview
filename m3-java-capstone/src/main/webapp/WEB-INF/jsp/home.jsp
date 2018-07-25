@@ -21,11 +21,11 @@
 		<input type="submit" placeholder="Submit"/>
 	</form>	
 	
-	<c:forEach items="${displayparks}" var="park">
+	<c:forEach items="${park}" var="park">
 	
 		<%--we get these values from the park.java file --%>	
 		<%--how do we get the image? from the file --%>
-		<img src="img/${park.imageName}">
+		<img src="img/${park.parkcode} + .jpg">
 		<p>${park.parkName}</p>
 		<p>${park.parkDescription}</p>
 		<p>${park.state}</p>
