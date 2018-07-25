@@ -3,15 +3,27 @@ package com.techelevator.npgeek.dao;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import com.techelevator.npgeek.model.Park;
 
+
+@Component
 public class JDBCParkDAO implements ParkDAO {	
 
 	private JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+    public void JDBCParkDao(DataSource datasource) {
+        this.jdbcTemplate = new JdbcTemplate(datasource);
+    }
 
+	@Override
 	public List<Park> getAllHomePageParks() {
 		LinkedList<Park> parks = new LinkedList<>();
 		String sqlStatement = "SELECT * \n" + "FROM park\n" + "ORDER BY parkname;";

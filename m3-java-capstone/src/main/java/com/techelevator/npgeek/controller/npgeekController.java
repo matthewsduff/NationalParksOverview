@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.techelevator.npgeek.dao.JDBCParkDAO;
 import com.techelevator.npgeek.dao.ParkDAO;
 import com.techelevator.npgeek.model.Park;
 
@@ -25,8 +26,8 @@ import com.techelevator.npgeek.model.Park;
 @SessionAttributes("nationalParksSession")
 public class npgeekController {
 	
-	@Autowired
-	private ParkDAO parkDAO;
+	
+	private JDBCParkDAO parkDAO;
 
 	@RequestMapping(path={"/","/home"}, method=RequestMethod.GET)
 	public String displayHome(HttpServletRequest request) {
