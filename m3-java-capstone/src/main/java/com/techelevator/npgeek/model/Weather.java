@@ -6,8 +6,17 @@ public class Weather {
 	private int fiveDayForecastValue;
 	private int low;
 	private int high;
-	private String foreCast;
+	private String imageName;
+	private String forecast;
 	
+	
+	
+	public String getImageName() {
+		return imageName;
+	}
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
 	public String getParkCode() {
 		return parkCode;
 	}
@@ -32,11 +41,11 @@ public class Weather {
 	public void setHigh(int high) {
 		this.high = high;
 	}
-	public String getForeCast() {
-		return foreCast;
+	public String getForecast() {
+		return forecast;
 	}
-	public void setForeCast(String foreCast) {
-		this.foreCast = foreCast;
+	public void setForeCast(String forecast) {
+		this.forecast = forecast;
 	}
 	
 	
