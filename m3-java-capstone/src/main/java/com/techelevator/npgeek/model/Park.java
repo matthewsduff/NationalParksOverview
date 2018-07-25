@@ -19,6 +19,9 @@ public class Park {
 	private int entryFee;
 	private int numberOfAnimalSpecies;
 	
+	public Park () {
+	
+	}
 	
 	public String getImageName() {
 		return imageName;

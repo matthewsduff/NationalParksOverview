@@ -9,7 +9,9 @@ public class Weather {
 	private String imageName;
 	private String forecast;
 	
-	
+	public Weather() {
+		
+	}
 	
 	public String getImageName() {
 		return imageName;
