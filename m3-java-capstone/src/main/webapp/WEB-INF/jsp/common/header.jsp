@@ -13,9 +13,9 @@
 	<header>
 	
 		<c:url var="logoImgSrc" value="/img/logo.png" />
-		<img src="${logoImgSrc}" alt="National Parks logo">
+		<img src="${logoImgSrc}" alt="National Parks logo" style="width:50%">
 		
-		<p class="motto">National Parks are great.</p>
+		<p class="motto">Link to homepage</p>
 
 	</header>
 	<nav>

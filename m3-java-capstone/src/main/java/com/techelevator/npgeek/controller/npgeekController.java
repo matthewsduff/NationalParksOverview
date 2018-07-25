@@ -37,6 +37,11 @@ public class npgeekController {
 		
 		return "parkDetail";
 	}
+	@RequestMapping(path="/survey", method=RequestMethod.GET)
+	public String displaySurvey() {
+		
+		return "survey";
+	}
 	@RequestMapping(path="/survey", method=RequestMethod.POST)
 	public String displaySurvey(@RequestParam String color,
 												ModelMap model) {
