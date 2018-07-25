@@ -9,5 +9,5 @@ public interface ParkDAO {
 	
 	public List<Park> getParkInfo();
 	
-	public 
+	
 }
