@@ -37,14 +37,15 @@ public class npgeekController {
 		
 		return "parkDetail";
 	}
-	@RequestMapping(path="/favSummary", method=RequestMethod.GET)
-	public String displaySummary() {
+	@RequestMapping(path="/survey", method=RequestMethod.POST)
+	public String displaySurvey(@RequestParam String color,
+												ModelMap model) {
 		
-		return "favSummary";
+		return "redirect:/surveyResults";
 	}
-	@RequestMapping(path="/favSeason", method=RequestMethod.GET)
+	@RequestMapping(path="/surveyResults", method=RequestMethod.GET)
 	public String displayfavSeason() {
 		
-		return "favSeason";
+		return "surveyResults";
 	}
 }
