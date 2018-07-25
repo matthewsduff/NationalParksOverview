@@ -5,8 +5,6 @@ public class TemperatureConverter {
 	private int celcius;
 	private int fahrenheit;
 	
-	
-	
 	public int getCelcius() {
 		return celcius;
 	}

@@ -11,7 +11,7 @@
 </head>
 <body>
 	<header>
-		<%-- <c:set var="loggedIn" value="${not empty sessionScope.username }"/> --%>
+	
 		<c:url var="logoImgSrc" value="/img/logo.png" />
 		<img src="${logoImgSrc}" alt="National Parks logo">
 		
