@@ -5,6 +5,7 @@ public class Park {
 	private String parkCode;
 	private String parkName;
 	private String state;
+	private String imageName;
 	private int acreage;
 	private int elevationInFeet;
 	private float milesOfTrail;
@@ -19,6 +20,12 @@ public class Park {
 	private int numberOfAnimalSpecies;
 	
 	
+	public String getImageName() {
+		return imageName;
+	}
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
 	public String getParkCode() {
 		return parkCode;
 	}
