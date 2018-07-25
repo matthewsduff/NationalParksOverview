@@ -15,54 +15,27 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller 
 @SessionAttributes("nationalParksSession")
-public class  {
+public class npgeekController {
 
-	@RequestMapping(path="/favFood", method=RequestMethod.GET)
-	public String displayfavFood() {
+	@RequestMapping(path={"/","/home"}, method=RequestMethod.GET)
+	public String displayHome() {
 		
-		return "favFood";
+		return "home";
 	}
 	
-	@RequestMapping(path="/favColor", method=RequestMethod.POST)
-	public String processFavColor(@RequestParam String color,
+	@RequestMapping(path="/home", method=RequestMethod.POST)
+	public String processParkSelection(@RequestParam String color,
 												 ModelMap model) {
 		
-		FavoriteThingModel favoriteThings = new FavoriteThingModel();
-		favoriteThings.setColor(color);
-		
-		model.addAttribute("userFavoriteThings", favoriteThings);
-		System.out.println(color);
-		System.out.println(favoriteThings.getColor());
-		return "redirect:/favFood";
-	}
-	
-	@RequestMapping(path="/favFood", method=RequestMethod.POST)
-	public String processFavFood(@RequestParam String food,
-												 ModelMap model) {
-		
-		FavoriteThingModel favoriteThings = (FavoriteThingModel)model.get("userFavoriteThings");
-		favoriteThings.setFood(food);
-		
-		return "redirect:/favSeason";
-	}
-	@RequestMapping(path="/favSeason", method=RequestMethod.POST)
-	public String processFavSeason(@RequestParam String season,
-												 ModelMap model) {
-		
-		FavoriteThingModel favoriteThings = (FavoriteThingModel)model.get("userFavoriteThings");
-		favoriteThings.setSeason(season);
-		
-		
-		
-		return "redirect:/favSummary";
+		// park selection stuff goes here
+		return "redirect:/parkDetail";
 	}
 	
 	
-	
-	@RequestMapping(path="/favColor", method=RequestMethod.GET)
-	public String displayfavColor() {
+	@RequestMapping(path="/parkDetail", method=RequestMethod.GET)
+	public String displayParkDetail() {
 		
-		return "favColor";
+		return "parkDetail";
 	}
 	@RequestMapping(path="/favSummary", method=RequestMethod.GET)
 	public String displaySummary() {
