@@ -25,7 +25,7 @@
 	
 		<%--we get these values from the park.java file --%>	
 		<%--how do we get the image? from the file --%>
-		<img src="img/${park.parkcode} + .jpg">
+		<img src="/img/parks/${park.parkcode} + .jpg">
 		<p>${park.parkName}</p>
 		<p>${park.parkDescription}</p>
 		<p>${park.state}</p>

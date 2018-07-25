@@ -26,8 +26,8 @@ import com.techelevator.npgeek.model.Park;
 @SessionAttributes("nationalParksSession")
 public class npgeekController {
 	
-	
-	private JDBCParkDAO parkDAO;
+	@Autowired
+	private ParkDAO parkDAO;
 
 	@RequestMapping(path={"/","/home"}, method=RequestMethod.GET)
 	public String displayHome(HttpServletRequest request) {
@@ -36,7 +36,7 @@ public class npgeekController {
 		List<Park> park = parkDAO.getAllHomePageParks();
 		request.setAttribute("park", park);
 		
-		return "/";
+		return "home";
 		
 	}
 	
