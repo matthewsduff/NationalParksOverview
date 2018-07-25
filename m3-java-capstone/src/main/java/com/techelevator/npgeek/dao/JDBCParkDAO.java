@@ -8,7 +8,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import com.techelevator.npgeek.model.Park;
 
-public class JDBCParkDAO implements ParkDAO {
+public class JDBCParkDAO implements ParkDAO {	
 
 	private JdbcTemplate jdbcTemplate;
 

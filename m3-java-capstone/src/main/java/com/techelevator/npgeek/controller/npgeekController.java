@@ -2,12 +2,20 @@ package com.techelevator.npgeek.controller;
 
 
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.techelevator.npgeek.dao.ParkDAO;
+import com.techelevator.npgeek.model.Park;
 
 
 
@@ -16,11 +24,19 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @Controller 
 @SessionAttributes("nationalParksSession")
 public class npgeekController {
+	
+	@Autowired
+	private ParkDAO parkDAO;
 
 	@RequestMapping(path={"/","/home"}, method=RequestMethod.GET)
-	public String displayHome() {
+	public String displayHome(HttpServletRequest request) {
 		
-		return "home";
+		
+		List<Park> park = parkDAO.getAllHomePageParks();
+		request.setAttribute("park", park);
+		
+		return "/";
+		
 	}
 	
 	@RequestMapping(path="/home", method=RequestMethod.POST)
