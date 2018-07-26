@@ -8,18 +8,14 @@
 		<title>Home page</title>
 	</head>
 	<body>
-		<h1>Do you like cigars? Do you like parties?</h1>
+		<%-- <h1>NATIONAL PARKS</h1> --%>
 		
 		<%--once the submit button is clicked, it takes us to the parks page --%>
 		<c:url var="formAction" value="/greeting"/>
 		
 		<%--we use this method to get the img in case the file paths change down the road --%>
-		<c:url var="imageLink" value="/imgs/forDummies.png"/>
-		<img src="${imageLink}">	
-	<form method="GET" action="${formAction}" >
-	<label>Click Here To submit a park</label>
-		<input type="submit" placeholder="Submit"/>
-	</form>	
+		
+	
 	
 	<c:forEach items="${park}" var="park">
 	
@@ -27,7 +23,7 @@
 		<%--how do we get the image? from the file --%>
 		<%-- <img src="img/parks/${park.parkcode}.jpg"> --%>
 		<img src="img/parks/${park.parkCode}.jpg">
-		<img src="img/old-images/cvnp.jpg">
+		
 		<p>${park.parkName}</p>
 		<p>${park.parkDescription}</p>
 		<p>${park.state}</p>

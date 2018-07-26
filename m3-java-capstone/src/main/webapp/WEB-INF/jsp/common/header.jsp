@@ -12,10 +12,10 @@
 <body>
 	<header>
 	
-		<c:url var="logoImgSrc" value="/img/logo.png" />
-		<img src="${logoImgSrc}" alt="National Parks logo" style="width:50%">
+		<c:url var="logoImgSrc" value="/img/park.png" />
+		<img src="${logoImgSrc}" alt="National Parks logo" style="width:75%">
 		
-		<p class="motto">Link to homepage</p>
+		
 
 	</header>
 	<nav>
