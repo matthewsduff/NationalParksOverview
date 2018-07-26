@@ -13,6 +13,50 @@ public class Weather {
 		
 	}
 	
+	public String getEquipment(String forecast) {
+		String result ="hi";
+		
+		if(this.forecast.equals("snow")) {
+			result = "better pack some snow shoes";
+		}
+		if(this.forecast.equals("rain")) {
+			result = "better pack rain gear and your waterproof shoes";
+		}
+		if(this.forecast.equals("thunderstorms")) {
+			result = "better seek shelter and avoid hiking on exposed ridges";
+		}
+		if(this.forecast.equals("sunny")) {
+			result = "better bring some high SPF sunscreen";
+			
+		}
+		if(this.forecast.equals("partly cloudy")) {
+			result = "better enjoy this partly coudly weather, while it lasts";
+		}
+		if(this.forecast.equals("hellish")) {
+			result = "better bring the armies of the Last Alliance of elves of men, hope, good/great pair of walking shoes, and second breaksfast";
+			
+		}
+		
+		return result;
+	}
+	
+	public String getTemperatureWarnings (int low, int high) {
+		String results = "hi";
+		
+		if(this.low < 20) {
+			results = "be aware of exteme cold and frigid conditions";
+		}
+		if(this.low > 75) {
+			results = "be aware of extreme heat, be sure to bring an extra gallon of water";
+		}
+		if(this.high - this.low > 20) {
+			results = "be sure to wear breathable layers";
+		}
+		
+		return results;
+	}
+	
+	
 	public String getImageName() {
 		return imageName;
 	}
