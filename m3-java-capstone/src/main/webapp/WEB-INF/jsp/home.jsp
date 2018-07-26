@@ -69,6 +69,7 @@
 		<p>${park.entryFee}</p>entryFee
 		<p>${park.numberOfAnimalSpecies}</p>numberOfAnimalSpecies
 		<p>${park.state}</p>state
+		<p>${carlWeathers.forecast}</p>
 		</div>
 	</c:forEach>
 	<script>

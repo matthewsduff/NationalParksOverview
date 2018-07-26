@@ -11,6 +11,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import com.techelevator.npgeek.model.Park;
+import com.techelevator.npgeek.model.Weather;
 
 
 @Component
@@ -38,10 +39,34 @@ public class JDBCParkDAO implements ParkDAO {
 	}
 	
 	
-	
-	
+
+	@Override
+	public List<Weather> getAllWeather() {
+		List<Weather> carlWeathers = new LinkedList<>();
+		String sqlStatement = "SELECT * FROM weather;";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlStatement);
+		while (results.next()) {
+			carlWeathers.add(mapRowToWeather(results));
+		}
+
+		return carlWeathers;
+	}
 	 
 
+	private Weather mapRowToWeather(SqlRowSet results) {
+
+		Weather theWeather = new Weather();
+		
+		theWeather.setParkCode(results.getString("parkcode").toLowerCase());
+		theWeather.setFiveDayForecastValue(results.getInt("fivedayforecastvalue"));
+		theWeather.setLow(results.getInt("low"));
+		theWeather.setHigh(results.getInt("high"));
+		theWeather.setForeCast(results.getString("forecast"));
+		
+		return theWeather;
+	}
+	
 	private Park mapRowToPark(SqlRowSet results) {
 
 		Park thePark = new Park();
@@ -64,5 +89,7 @@ public class JDBCParkDAO implements ParkDAO {
 
 		return thePark;
 	}
+
+
 
 }
