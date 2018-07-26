@@ -24,10 +24,21 @@
 		<%-- <img src="img/parks/${park.parkcode}.jpg"> --%>
 		<img src="img/parks/${park.parkCode}.jpg">
 		
-		<p>${park.parkName}</p>
-		<p>${park.parkDescription}</p>
-		<p>${park.state}</p>
-		
+		<p>${park.parkName}</p>parkName
+		<p>${park.parkDescription}</p>parkDescription
+		<p>${park.acreage}</p>acreage
+		<p>${park.elevationInFeet}</p>elevationInFeet
+		<p>${park.milesOfTrail}</p>milesOfTrail
+		<p>${park.numberOfCampsites}</p>numberOfCampsites
+		<p>${park.climate}</p>climate
+		<p>${park.yearFounded}</p>yearFounded
+		<p>${park.annualVisitorCount}</p>annualVisitorCount
+		<p>${park.inspirationalQuote}</p>inspirationalQuote
+		<p>${park.inspirationalQuoteSource}</p>inspirationalQuoteSource
+		<p>${park.parkDescription}</p>parkDescription
+		<p>${park.entryFee}</p>entryFee
+		<p>${park.numberOfAnimalSpecies}</p>numberOfAnimalSpecies
+		<p>${park.state}</p>state
 		
 	</c:forEach>
 		
