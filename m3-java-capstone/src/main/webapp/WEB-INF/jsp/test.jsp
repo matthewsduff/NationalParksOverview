@@ -1,28 +1,23 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<c:import url="/WEB-INF/jsp/common/header.jsp" />
-
 <!DOCTYPE html>
 <html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 .accordion {
-    color: white;
-    font-size:4em;
-    text-transform:uppercase;
+    background-color: #eee;
+    color: #444;
     cursor: pointer;
     padding: 18px;
     width: 100%;
     border: none;
     text-align: left;
     outline: none;
-   	text-align: center;
+    font-size: 15px;
     transition: 0.4s;
-    height:400px;
-    width:1200px;
 }
 
 .active, .accordion:hover {
-    background-color: white; 
+    background-color: #ccc; 
 }
 
 .panel {
@@ -32,27 +27,14 @@
     overflow: hidden;
 }
 </style>
-	<head>
-		<title>Home page</title>
-	</head>
-	<body>
-		<%-- <h1>NATIONAL PARKS</h1> --%>
-		
-		<%--once the submit button is clicked, it takes us to the parks page --%>
-		<c:url var="formAction" value="/greeting"/>
-		
-		<%--we use this method to get the img in case the file paths change down the road --%>
-		
-	
-	
-	<c:forEach items="${park}" var="park">
-	<button class="accordion" style="background: url(img/parks/${park.parkCode}.jpg) no-repeat;">${park.parkName}</button>
-		<%--we get these values from the park.java file --%>	
-		<%--how do we get the image? from the file --%>
-		<%-- <img src="img/parks/${park.parkcode}.jpg"> --%>
-		
-		<div class="panel">
-		
+</head>
+<body>
+
+<h2>Accordion</h2>
+
+<button class="accordion">Section 1</button>
+<div class="panel">
+  <img src="img/parks/${park.parkCode}.jpg">
 		
 		<p>${park.parkName}</p>parkName
 		<p>${park.parkDescription}</p>parkDescription
@@ -69,9 +51,19 @@
 		<p>${park.entryFee}</p>entryFee
 		<p>${park.numberOfAnimalSpecies}</p>numberOfAnimalSpecies
 		<p>${park.state}</p>state
-		</div>
-	</c:forEach>
-	<script>
+</div>
+
+<button class="accordion">Section 2</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Section 3</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<script>
 var acc = document.getElementsByClassName("accordion");
 var i;
 
@@ -87,11 +79,6 @@ for (i = 0; i < acc.length; i++) {
     });
 }
 </script>
-		
-		
-	</body>
+
+</body>
 </html>
-
-
-
-<c:import url="/WEB-INF/jsp/common/footer.jsp" />
