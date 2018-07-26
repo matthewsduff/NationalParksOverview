@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+
 import com.techelevator.npgeek.model.Park;
 import com.techelevator.npgeek.model.Survey;
 
@@ -34,22 +35,32 @@ public class JDBCSurveyDAO implements SurveyDAO {
 		return survey;
 	}
 	
+	
+	
 	@Override
 	public void addSurvey(Survey newSurvey) {
-		String sqlInsertNewPark = "INSERT INTO survey_result(name,location,establish_date,area,visitors,description) "
-				+ "VALUES (?,?,?,?,?,?) RETURNING park_id;";
-		// newPark.setPark_id(getNextParkId());
-		Long id = jdbcParkTemplate.queryForObject(sqlInsertNewPark, Long.class, newPark.getPark_name(),
-				newPark.getLocation(), newPark.getEstablished_date(), newPark.getArea(), newPark.getAnnual_visitors(),
-				newPark.getDescription());
-		newPark.setPark_id(id);
-		/*
-		 * jdbcParkTemplate.update(sqlInsertNewPark, newPark.getPark_id(),
-		 * newPark.getPark_name(), newPark.getLocation(), newPark.getEstablished_date(),
-		 * newPark.getArea(), newPark.getAnnual_visitors(), newPark.getDescription());
-		 */
-
+		int id = getNextId();
+		String sqlInsertNewSurvey = "INSERT INTO survey_result(surveyid, parkcode,emailaddress,state,activitylevel) "
+				+ "VALUES (?,?,?,?,?);";
+		jdbcTemplate.update(sqlInsertNewSurvey, id, newSurvey.getParkCode(), newSurvey.getEmailAddress(), newSurvey.getState(), newSurvey.getActivityLevel());
+		newSurvey.setSurveyId(id);
 	}
+	
+	
+	
+	private Integer getNextId() {
+		String sqlSelectNextId = "SELECT NEXTVAL('surveyid')";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectNextId);
+		Integer id = null;
+		if(results.next()) {
+			id = results.getInt(1);
+		} else {
+			throw new RuntimeException("Something strange happened, unable to select next forum post id from sequence");
+		}
+		return id;
+	}
+	
+	
 	
 	private Survey mapRowToSurvey(SqlRowSet results) {
 
@@ -63,5 +74,7 @@ public class JDBCSurveyDAO implements SurveyDAO {
 
 		return theSurvey;
 	}
+
+	
 
 }
