@@ -92,6 +92,8 @@ p {
 					<tr><td>${weather.low}</td>
 					<td>${weather.high}</td>
 					<td>${weather.forecast}</td>
+					<td>${weather.equipment}</td>
+					<td>${weather.temperatureWarnings}</td>
 					</tr>
 
 										

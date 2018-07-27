@@ -49,6 +49,7 @@ public class JDBCParkDAO implements ParkDAO {
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlStatement);
 		while (results.next()) {
 			carlWeathers.add(mapRowToWeather(results));
+			
 		}
 
 		return carlWeathers;
@@ -65,7 +66,8 @@ public class JDBCParkDAO implements ParkDAO {
 		theWeather.setHigh(results.getInt("high"));
 		theWeather.setForecast(results.getString("forecast"));
 		
-		theWeather.getEquipment(results.getString("forecast"));
+		theWeather.setEquipment(results.getString("forecast"));
+		theWeather.setTemperatureWarnings(results.getInt("low"),results.getInt("high"));
 
 		
 		return theWeather;

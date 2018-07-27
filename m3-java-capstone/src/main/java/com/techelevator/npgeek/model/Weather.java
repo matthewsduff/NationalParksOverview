@@ -8,13 +8,15 @@ public class Weather {
 	private int high;
 	private String imageName;
 	private String forecast;
+	private String equipment;
+	private String temperatureWarnings;
 	
 	public Weather() {
 		
 	}
 	
-	public String getEquipment(String forecast) {
-		String result ="hi";
+	public String setEquipment(String forecast) {
+		String result ="";
 		
 		if(this.forecast.equals("snow")) {
 			result = "better pack some snow shoes";
@@ -36,12 +38,14 @@ public class Weather {
 			result = "better bring the armies of the Last Alliance of elves of men, hope, good/great pair of walking shoes, and second breaksfast";
 			
 		}
-		
-		return result;
+		this.equipment = result;
+		return this.equipment;
 	}
 	
-	public String getTemperatureWarnings (int low, int high) {
-		String results = "hi";
+	
+
+	public String setTemperatureWarnings (int low, int high) {
+		String results = "";
 		
 		if(this.low < 20) {
 			results = "be aware of exteme cold and frigid conditions";
@@ -52,11 +56,17 @@ public class Weather {
 		if(this.high - this.low > 20) {
 			results = "be sure to wear breathable layers";
 		}
-		
-		return results;
+		this.temperatureWarnings = results;
+		return this.temperatureWarnings;
 	}
 	
-	
+	public String getTemperatureWarnings() {
+		return temperatureWarnings;
+	}
+
+	public String getEquipment() {
+		return equipment;
+	}
 	public String getImageName() {
 		return imageName;
 	}
