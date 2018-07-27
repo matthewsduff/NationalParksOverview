@@ -8,7 +8,7 @@ public interface ParkDAO {
 	
 	public List<Park> getAllHomePageParks();
 	
-	public List<Weather> getAllWeather();
+	public List<Weather> getParkWeather();
 	
 	
 }

@@ -40,7 +40,7 @@ public class npgeekController {
 		
 		List<Park> park = parkDAO.getAllHomePageParks();
 		request.setAttribute("park", park);
-		List<Weather> weather = parkDAO.getAllWeather();
+		List<Weather> weather = parkDAO.getParkWeather();
 		request.setAttribute("weather", weather);
 		
 		return "home";

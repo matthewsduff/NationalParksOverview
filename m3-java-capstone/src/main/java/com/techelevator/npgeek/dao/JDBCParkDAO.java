@@ -1,4 +1,4 @@
-package com.techelevator.npgeek.dao;
+  package com.techelevator.npgeek.dao;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -41,9 +41,9 @@ public class JDBCParkDAO implements ParkDAO {
 	
 
 	@Override
-	public List<Weather> getAllWeather() {
+	public List<Weather> getParkWeather() {
 		List<Weather> carlWeathers = new LinkedList<>();
-		String sqlStatement = "SELECT * FROM weather;";
+		String sqlStatement = "SELECT * FROM weather WHERE parkcode = ?;";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlStatement);
 		while (results.next()) {

@@ -77,7 +77,12 @@ font-family: Helvetica;
 		<p>Number of Animal Species: ${park.numberOfAnimalSpecies}</p>
 		<p>State: ${park.state}</p>
 		<br>
-
+		
+		<c:forEach items = "${weather}" var = "weather">
+		
+		<p> </p>
+		</c:forEach>
+		
 		</div>
 	</c:forEach>
 	</div>
