@@ -9,9 +9,7 @@
 				<td class="labelPopularParks">Most popular parks:</td>
 				<td>
 				<c:forEach items="${surveyResults}" var="survey_result">
-				<p value = "${survey_result.parkCode}"></p>
-				<p></p>
-				
+				<p>${survey_result.parkName}</p>				
 				</c:forEach>
 				
 				</td>

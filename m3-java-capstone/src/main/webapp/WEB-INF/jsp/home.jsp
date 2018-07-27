@@ -76,6 +76,7 @@ font-family: Helvetica;
 		<p>Entry Fee: $${park.entryFee}</p>
 		<p>Number of Animal Species: ${park.numberOfAnimalSpecies}</p>
 		<p>State: ${park.state}</p>
+		<br>
 
 		</div>
 	</c:forEach>

@@ -26,12 +26,12 @@ public class JDBCSurveyDAO implements SurveyDAO {
 	@Override
 	public List<Survey> getAllSurveys() {
 		LinkedList<Survey> survey = new LinkedList<>();
-		String sqlStatement = "SELECT parkname FROM park JOIN survey_result sr ON park.parkcode = sr.parkcode GROUP BY park.parkname ORDER BY park.parkname limit 3;";
+		String sqlStatement = "SELECT parkname FROM survey_result sr JOIN park ON sr.parkcode = park.parkcode GROUP BY park.parkname ORDER BY park.parkname limit 3;";
 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlStatement);
 
 		while (results.next()) {
-			survey.add(mapRowToSurvey(results));
+			survey.add(mapParkNameToSurveyResults(results));
 		}
 		return survey;
 	}
@@ -54,6 +54,14 @@ public class JDBCSurveyDAO implements SurveyDAO {
 		theSurvey.setActivityLevel(results.getString("activitylevel"));
 
 		return theSurvey;
+	}
+	
+	private Survey mapParkNameToSurveyResults(SqlRowSet results) {
+
+		Survey theSurveyResult = new Survey();
+		theSurveyResult.setParkName(results.getString("parkname"));
+		
+		return theSurveyResult;
 	}
 
 }

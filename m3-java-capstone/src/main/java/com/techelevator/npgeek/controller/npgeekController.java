@@ -19,6 +19,7 @@ import com.techelevator.npgeek.dao.ParkDAO;
 import com.techelevator.npgeek.dao.SurveyDAO;
 import com.techelevator.npgeek.model.Park;
 import com.techelevator.npgeek.model.Survey;
+import com.techelevator.npgeek.model.Weather;
 
 
 
@@ -39,6 +40,8 @@ public class npgeekController {
 		
 		List<Park> park = parkDAO.getAllHomePageParks();
 		request.setAttribute("park", park);
+		List<Weather> weather = parkDAO.getAllWeather();
+		request.setAttribute("weather", weather);
 		
 		return "home";
 		
