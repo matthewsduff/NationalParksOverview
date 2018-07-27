@@ -16,7 +16,7 @@
     text-align: left;
     outline: none;
    	text-align: center;
-    transition: 0.4s;
+    transition: 2s;
     height:400px;
     width:1200px;
 }
@@ -31,11 +31,17 @@
     background-color: white;
     overflow: hidden;
 }
+
+p{
+font-family: Helvetica;
+}
+
 </style>
 	<head>
 		<title>Home page</title>
 	</head>
 	<body>
+	<div>
 		<%-- <h1>NATIONAL PARKS</h1> --%>
 		
 		<%--once the submit button is clicked, it takes us to the parks page --%>
@@ -54,23 +60,22 @@
 		<div class="panel">
 		
 		
-		<p>${park.parkName}</p>parkName
-		<p>${park.parkDescription}</p>parkDescription
-		<p>${park.acreage}</p>acreage
-		<p>${park.elevationInFeet}</p>elevationInFeet
-		<p>${park.milesOfTrail}</p>milesOfTrail
-		<p>${park.numberOfCampsites}</p>numberOfCampsites
-		<p>${park.climate}</p>climate
-		<p>${park.yearFounded}</p>yearFounded
-		<p>${park.annualVisitorCount}</p>annualVisitorCount
-		<p>${park.inspirationalQuote}</p>inspirationalQuote
-		<p>${park.inspirationalQuoteSource}</p>inspirationalQuoteSource
-		<p>${park.parkDescription}</p>parkDescription
-		<p>${park.entryFee}</p>entryFee
-		<p>${park.numberOfAnimalSpecies}</p>numberOfAnimalSpecies
-		<p>${park.state}</p>state
+		<p>${park.parkName}</p>
+		<p>Description: ${park.parkDescription}</p>
+		<p>Acreage: ${park.acreage}</p>
+		<p>Elevation In Feet: ${park.elevationInFeet}</p>
+		<p>Miles of Trail: ${park.milesOfTrail}</p>
+		<p>Number of Campsites: ${park.numberOfCampsites}</p>
+		<p>Climate: ${park.climate}</p>
+		<p>Founded: ${park.yearFounded}</p>
+		<p>Annual Visitor Count: ${park.annualVisitorCount}</p>
+		<p><em>"${park.inspirationalQuote}" </em> - ${park.inspirationalQuoteSource}</p>
+		<p>Entry Fee: $${park.entryFee}</p>
+		<p>Number of Animal Species: ${park.numberOfAnimalSpecies}</p>
+		<p>State: ${park.state}</p>
 		</div>
 	</c:forEach>
+	</div>
 	<script>
 var acc = document.getElementsByClassName("accordion");
 var i;
