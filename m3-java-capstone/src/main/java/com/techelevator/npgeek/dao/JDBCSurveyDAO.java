@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import com.techelevator.npgeek.model.Park;
 import com.techelevator.npgeek.model.Survey;
+
 @Component
 public class JDBCSurveyDAO implements SurveyDAO {
 
@@ -25,7 +26,7 @@ public class JDBCSurveyDAO implements SurveyDAO {
 	@Override
 	public List<Survey> getAllSurveys() {
 		LinkedList<Survey> survey = new LinkedList<>();
-		String sqlStatement = "SELECT * \n" + "FROM survey_result\n" + "GROUP BY parkcode ORDER BY parkname;";
+		String sqlStatement = "SELECT parkname FROM park JOIN survey_result sr ON park.parkcode = sr.parkcode GROUP BY park.parkname ORDER BY park.parkname limit 3;";
 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlStatement);
 
@@ -43,12 +44,10 @@ public class JDBCSurveyDAO implements SurveyDAO {
 				newSurvey.getState(), newSurvey.getActivityLevel());
 	}
 
-
-
 	private Survey mapRowToSurvey(SqlRowSet results) {
 
 		Survey theSurvey = new Survey();
-		//theSurvey.setSurveyId(results.getInt("surveyid"));
+		theSurvey.setSurveyId(results.getInt("surveyid"));
 		theSurvey.setParkCode(results.getString("parkcode").toLowerCase());
 		theSurvey.setEmailAddress(results.getString("emailaddress"));
 		theSurvey.setState(results.getString("state"));

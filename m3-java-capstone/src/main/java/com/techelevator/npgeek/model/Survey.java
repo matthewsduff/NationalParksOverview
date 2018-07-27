@@ -7,10 +7,21 @@ public class Survey {
 	private String emailAddress;
 	private String state;
 	private String activityLevel;
+	private String parkName;
 	
 	
 	public Survey() {
 		
+	}
+
+
+	public String getParkName() {
+		return parkName;
+	}
+
+
+	public void setParkName(String parkName) {
+		this.parkName = parkName;
 	}
 
 

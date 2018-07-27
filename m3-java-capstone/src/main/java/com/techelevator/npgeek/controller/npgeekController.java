@@ -67,8 +67,10 @@ public class npgeekController {
 		return "redirect:/surveyResults";
 	}
 	@RequestMapping(path="/surveyResults", method=RequestMethod.GET)
-	public String displayfavSeason() {
+	public String displaySurveyResults(HttpServletRequest request) {
 		
+		List<Survey> surveyResults = surveyDAO.getAllSurveys();
+		request.setAttribute("surveyResults", surveyResults);		
 		return "surveyResults";
 	}
 }
