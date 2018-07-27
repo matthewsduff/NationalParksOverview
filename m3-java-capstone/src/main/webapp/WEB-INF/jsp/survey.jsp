@@ -5,7 +5,7 @@
 <div class="main_content">
 	<h1>NATIONAL PARKS SURVEY</h1>
 
-	<c:url var="formAction" value="/surveyResults" />
+	<c:url var="formAction" value="/survey" />
 	<form method="POST" action="${formAction}">
 
 		<table>

@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.npgeek.dao.JDBCParkDAO;
 import com.techelevator.npgeek.dao.ParkDAO;
+import com.techelevator.npgeek.dao.SurveyDAO;
 import com.techelevator.npgeek.model.Park;
+import com.techelevator.npgeek.model.Survey;
 
 
 
@@ -28,6 +30,8 @@ public class npgeekController {
 	
 	@Autowired
 	private ParkDAO parkDAO;
+	@Autowired
+	private SurveyDAO surveyDAO;
 
 	@RequestMapping(path={"/","/home"}, method=RequestMethod.GET)
 	public String displayHome(HttpServletRequest request) {
@@ -40,28 +44,25 @@ public class npgeekController {
 		
 	}
 	
-	@RequestMapping(path="/home", method=RequestMethod.POST)
-	public String processParkSelection(@RequestParam String color,
-												 ModelMap model) {
-		
-		// park selection stuff goes here
-		return "redirect:/parkDetail";
-	}
-	
-	
-	@RequestMapping(path="/parkDetail", method=RequestMethod.GET)
-	public String displayParkDetail() {
-		
-		return "parkDetail";
-	}
 	@RequestMapping(path="/survey", method=RequestMethod.GET)
 	public String displaySurvey() {
 		
 		return "survey";
 	}
 	@RequestMapping(path="/survey", method=RequestMethod.POST)
-	public String displaySurvey(@RequestParam String color,
-												ModelMap model) {
+	public String displaySurvey(@RequestParam String parkcode,
+								@RequestParam String emailaddress,
+								@RequestParam String state,
+								@RequestParam String activitylevel
+												) {
+		
+		Survey newSurvey = new Survey();
+		newSurvey.setParkCode(parkcode);
+		newSurvey.setEmailAddress(emailaddress);
+		newSurvey.setState(state);
+		newSurvey.setActivityLevel(activitylevel);
+		
+		surveyDAO.addSurvey(newSurvey);
 		
 		return "redirect:/surveyResults";
 	}
