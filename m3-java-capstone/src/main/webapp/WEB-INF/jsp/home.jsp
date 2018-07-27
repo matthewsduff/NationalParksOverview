@@ -20,9 +20,11 @@
     height:400px;
     width:1200px;
 }
+.button:hover {opacity: 1}
 
 .active, .accordion:hover {
-    background-color: white; 
+    background-color: white;
+    opacity: 1: 
 }
 
 .panel {
@@ -60,6 +62,7 @@ font-family: Helvetica;
 		<div class="panel">
 		
 		
+
 		<p>${park.parkName}</p>
 		<p>Description: ${park.parkDescription}</p>
 		<p>Acreage: ${park.acreage}</p>
@@ -73,6 +76,7 @@ font-family: Helvetica;
 		<p>Entry Fee: $${park.entryFee}</p>
 		<p>Number of Animal Species: ${park.numberOfAnimalSpecies}</p>
 		<p>State: ${park.state}</p>
+
 		</div>
 	</c:forEach>
 	</div>
