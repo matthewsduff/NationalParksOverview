@@ -26,7 +26,7 @@ public class JDBCSurveyDAO implements SurveyDAO {
 	@Override
 	public List<Survey> getAllSurveys() {
 		LinkedList<Survey> survey = new LinkedList<>();
-		String sqlStatement = "SELECT parkname FROM survey_result sr JOIN park ON sr.parkcode = park.parkcode GROUP BY park.parkname ORDER BY park.parkname limit 3;";
+		String sqlStatement = "SELECT park.parkname FROM survey_result sr JOIN park ON sr.parkcode = park.parkcode GROUP BY park.parkcode ORDER BY COUNT(park.parkcode) DESC LIMIT 3;";
 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlStatement);
 

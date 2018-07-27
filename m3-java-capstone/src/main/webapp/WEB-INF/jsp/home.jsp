@@ -80,7 +80,6 @@ font-family: Helvetica;
 		
 		<c:forEach items = "${weather}" var = "weather">
 		
-		<p> </p>
 		</c:forEach>
 		
 		</div>
