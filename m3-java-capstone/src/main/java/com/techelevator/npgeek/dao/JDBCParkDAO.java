@@ -40,10 +40,10 @@ public class JDBCParkDAO implements ParkDAO {
 	
 	
 
-	/*@Override
+	@Override
 	public List<Weather> getParkWeather() {
 		List<Weather> carlWeathers = new LinkedList<>();
-		String sqlStatement = "SELECT park.parkcode FROM weather\n" + 
+		String sqlStatement = "SELECT * FROM weather\n" + 
 				"JOIN park ON weather.parkcode = park.parkcode;";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlStatement);
@@ -52,7 +52,7 @@ public class JDBCParkDAO implements ParkDAO {
 		}
 
 		return carlWeathers;
-	}*/
+	}
 	 
 
 	private Weather mapRowToWeather(SqlRowSet results) {
@@ -63,7 +63,10 @@ public class JDBCParkDAO implements ParkDAO {
 		theWeather.setFiveDayForecastValue(results.getInt("fivedayforecastvalue"));
 		theWeather.setLow(results.getInt("low"));
 		theWeather.setHigh(results.getInt("high"));
-		theWeather.setForeCast(results.getString("forecast"));
+		theWeather.setForecast(results.getString("forecast"));
+		
+		theWeather.getEquipment(results.getString("forecast"));
+
 		
 		return theWeather;
 	}

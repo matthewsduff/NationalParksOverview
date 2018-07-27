@@ -32,7 +32,7 @@ public class Weather {
 		if(this.forecast.equals("partly cloudy")) {
 			result = "better enjoy this partly coudly weather, while it lasts";
 		}
-		if(this.forecast.equals("hellish")) {
+		if(this.forecast.equals("ash")) {
 			result = "better bring the armies of the Last Alliance of elves of men, hope, good/great pair of walking shoes, and second breaksfast";
 			
 		}
@@ -90,7 +90,7 @@ public class Weather {
 	public String getForecast() {
 		return forecast;
 	}
-	public void setForeCast(String forecast) {
+	public void setForecast(String forecast) {
 		this.forecast = forecast;
 	}
 	

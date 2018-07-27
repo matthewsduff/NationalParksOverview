@@ -40,8 +40,8 @@ public class npgeekController {
 		
 		List<Park> park = parkDAO.getAllHomePageParks();
 		request.setAttribute("park", park);
-		//List<Weather> weather = parkDAO.getParkWeather();
-		//request.setAttribute("weather", weather);
+		List<Weather> weather = parkDAO.getParkWeather();
+		request.setAttribute("weather", weather);
 		
 		return "home";
 		
@@ -74,6 +74,6 @@ public class npgeekController {
 		
 		List<Survey> surveyResults = surveyDAO.getAllSurveys();
 		request.setAttribute("surveyResults", surveyResults);		
-		return "surveyResults";
+		return "redirect: home";
 	}
 }

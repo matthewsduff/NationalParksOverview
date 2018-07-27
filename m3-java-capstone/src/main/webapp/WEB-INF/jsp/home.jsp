@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
@@ -6,104 +6,121 @@
 <html>
 <style>
 .accordion {
-    color: white;
-    font-size:4em;
-    text-transform:uppercase;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-   	text-align: center;
-    transition: 2s;
-    height:400px;
-    width:1200px;
+	color: white;
+	font-size: 4em;
+	text-transform: uppercase;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	text-align: center;
+	transition: 2s;
+	height: 400px;
+	width: 1200px;
 }
-.button:hover {opacity: 1}
+
+.button:hover {
+	opacity: 1
+}
 
 .active, .accordion:hover {
-    background-color: white;
-    opacity: 1: 
+	background-color: white;
+	opacity: 1:
 }
 
 .panel {
-    padding: 0 18px;
-    display: none;
-    background-color: white;
-    overflow: hidden;
+	padding: 0 18px;
+	display: none;
+	background-color: white;
+	overflow: hidden;
 }
 
-p{
-font-family: Helvetica;
+p {
+	font-family: Helvetica;
 }
-
 </style>
-	<head>
-		<title>Home page</title>
-	</head>
-	<body>
+<head>
+<title>Home page</title>
+</head>
+<body>
 	<div>
 		<%-- <h1>NATIONAL PARKS</h1> --%>
-		
-		<%--once the submit button is clicked, it takes us to the parks page --%>
-		<c:url var="formAction" value="/greeting"/>
-		
-		<%--we use this method to get the img in case the file paths change down the road --%>
-		
-	
-	
-	<c:forEach items="${park}" var="park">
-	<button class="accordion" style="background: url(img/parks/${park.parkCode}.jpg) no-repeat;">${park.parkName}</button>
-		<%--we get these values from the park.java file --%>	
-		<%--how do we get the image? from the file --%>
-		<%-- <img src="img/parks/${park.parkcode}.jpg"> --%>
-		
-		<div class="panel">
-		
-		
 
-		<p>${park.parkName}</p>
-		<p>Description: ${park.parkDescription}</p>
-		<p>Acreage: ${park.acreage}</p>
-		<p>Elevation In Feet: ${park.elevationInFeet}</p>
-		<p>Miles of Trail: ${park.milesOfTrail}</p>
-		<p>Number of Campsites: ${park.numberOfCampsites}</p>
-		<p>Climate: ${park.climate}</p>
-		<p>Founded: ${park.yearFounded}</p>
-		<p>Annual Visitor Count: ${park.annualVisitorCount}</p>
-		<p><em>"${park.inspirationalQuote}" </em> - ${park.inspirationalQuoteSource}</p>
-		<p>Entry Fee: $${park.entryFee}</p>
-		<p>Number of Animal Species: ${park.numberOfAnimalSpecies}</p>
-		<p>State: ${park.state}</p>
-		<br>
-		
-		<c:forEach items = "${weather}" var = "weather">
-		
+		<%--once the submit button is clicked, it takes us to the parks page --%>
+		<c:url var="formAction" value="/greeting" />
+
+		<%--we use this method to get the img in case the file paths change down the road --%>
+
+
+
+		<c:forEach items="${park}" var="park">
+			<button class="accordion"
+				style="background: url(img/parks/${park.parkCode}.jpg) no-repeat;">${park.parkName}</button>
+			<%--we get these values from the park.java file --%>
+			<%--how do we get the image? from the file --%>
+			<%-- <img src="img/parks/${park.parkcode}.jpg"> --%>
+
+			<div class="panel">
+
+
+
+				<p>${park.parkName}</p>
+				<p>Description: ${park.parkDescription}</p>
+				<p>Acreage: ${park.acreage}</p>
+				<p>Elevation In Feet: ${park.elevationInFeet}</p>
+				<p>Miles of Trail: ${park.milesOfTrail}</p>
+				<p>Number of Campsites: ${park.numberOfCampsites}</p>
+				<p>Climate: ${park.climate}</p>
+				<p>Founded: ${park.yearFounded}</p>
+				<p>Annual Visitor Count: ${park.annualVisitorCount}</p>
+				<p>
+					<em>"${park.inspirationalQuote}" </em> -
+					${park.inspirationalQuoteSource}
+				</p>
+				<p>Entry Fee: $${park.entryFee}</p>
+				<p>Number of Animal Species: ${park.numberOfAnimalSpecies}</p>
+				<p>State: ${park.state}</p>
+				<br>
+				<table class = "weather">
+				<tr><th>low temp:</th><th>high temp:</th><th>Forecast:</th>
+				
+				</tr>
+				<c:forEach items="${weather}" var="weather">
+				<c:if test = "${park.parkCode == weather.parkCode}">
+					<tr><td>${weather.low}</td>
+					<td>${weather.high}</td>
+					<td>${weather.forecast}</td>
+					</tr>
+
+										
+					</c:if>
+				</c:forEach>
+				</table>
+
+			</div>
 		</c:forEach>
-		
-		</div>
-	</c:forEach>
 	</div>
 	<script>
-var acc = document.getElementsByClassName("accordion");
-var i;
+		var acc = document.getElementsByClassName("accordion");
+		var i;
 
-for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
-    });
-}
-</script>
-		
-		
-	</body>
+		for (i = 0; i < acc.length; i++) {
+			acc[i].addEventListener("click", function() {
+				this.classList.toggle("active");
+				var panel = this.nextElementSibling;
+				if (panel.style.display === "block") {
+					panel.style.display = "none";
+				} else {
+					panel.style.display = "block";
+				}
+			});
+		}
+	</script>
+
+
+</body>
 </html>
 
 
