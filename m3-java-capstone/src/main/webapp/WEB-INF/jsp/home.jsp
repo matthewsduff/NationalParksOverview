@@ -19,6 +19,7 @@
 	transition: 2s;
 	height: 400px;
 	width: 1200px;
+	margin: 0, 0, 0, 10px;
 }
 
 .button:hover {
@@ -38,13 +39,13 @@
 	overflow: hidden;
 }
 
-p {
+td {
 	font-family: Helvetica;
 }
 </style>
 <head>
 <title>Home page</title>
-<c:url var="stylesheetHref" value="/css/npgeekCSS.css" />
+<c:url var="stylesheetHref" value="/CSS/npgeekCSS.css" />
 <link rel="stylesheet" href="${stylesheetHref}">
 </head>
 <body>
@@ -71,7 +72,7 @@ p {
 
 				<table width="1100px">
 					<tr>
-						<td id = "parkName">${park.parkName}</td>
+						<td id="parkName">${park.parkName}</td>
 					</tr>
 					<tr>
 						<td>State: ${park.state}</td>
@@ -104,14 +105,16 @@ p {
 
 				</table>
 				<br>
-				
-				
+
+
 				<table class="weather">
 					<tr>
-						<th>low temp:F/C</th>
-						<th>high temp:F/C</th>
-						<th>Forecast:</th>
-						<th>Recommendation:</th>
+						<th width="50px">low temp:F/C</th>
+						<th width="50px">high temp:F/C</th>
+						<th width="50px">Forecast:</th>
+						<th width="50px"></th>
+						<th width ="600px">Recommendation:</th>
+						<th width="50px"></th>
 
 					</tr>
 					<c:forEach items="${weather}" var="weather">
@@ -120,9 +123,10 @@ p {
 								<td>${weather.low}/${weather.celLow}</td>
 								<td>${weather.high}/${weather.celHigh}</td>
 								<td>${weather.forecast}</td>
-								<td>${weather.equipment}</td>
-								<td><img src="img/weather/${weather.forecast}.png" height = "15%" width = "15%"></td>
-								<td>${weather.temperatureWarnings}</td>
+								<td><img src="img/weather/${weather.forecast}.png"
+									height="15%" width="15%"></td>
+								<td>${weather.temperatureWarnings}. ${weather.equipment}</td>
+								<td></td>
 							</tr>
 
 						</c:if>
