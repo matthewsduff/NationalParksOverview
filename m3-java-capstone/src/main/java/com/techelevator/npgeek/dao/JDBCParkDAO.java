@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.SingleConnectionDataSource;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
@@ -19,9 +20,12 @@ public class JDBCParkDAO implements ParkDAO {
 
 	private JdbcTemplate jdbcTemplate;
 	
+
+
+
 	@Autowired
-    public void JDBCParkDao(DataSource datasource) {
-        this.jdbcTemplate = new JdbcTemplate(datasource);
+    public JDBCParkDAO(DataSource dataSource) {
+        this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
 	@Override

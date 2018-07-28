@@ -72,8 +72,8 @@ public class npgeekController {
 	@RequestMapping(path="/surveyResults", method=RequestMethod.GET)
 	public String displaySurveyResults(HttpServletRequest request) {
 		
-		List<Survey> surveyResults = surveyDAO.getAllSurveys();
+		List<Survey> surveyResults = surveyDAO.getTopSurveys();
 		request.setAttribute("surveyResults", surveyResults);		
-		return "redirect: home";
+		return "surveyResults";
 	}
 }

@@ -24,7 +24,7 @@ public class JDBCSurveyDAO implements SurveyDAO {
 	}
 
 	@Override
-	public List<Survey> getAllSurveys() {
+	public List<Survey> getTopSurveys() {
 		LinkedList<Survey> survey = new LinkedList<>();
 		String sqlStatement = "SELECT park.parkname FROM survey_result sr JOIN park ON sr.parkcode = park.parkcode GROUP BY park.parkcode ORDER BY COUNT(park.parkcode) DESC LIMIT 3;";
 
@@ -35,6 +35,18 @@ public class JDBCSurveyDAO implements SurveyDAO {
 		}
 		return survey;
 	}
+	@Override
+	public List<Survey> getAllSurveys() {  //FOR TESTING PURPOSES
+		LinkedList<Survey> survey = new LinkedList<>();
+		String sqlStatement = "SELECT * FROM survey_result;";
+
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlStatement);
+
+		while (results.next()) {
+			survey.add(mapRowToSurvey(results));
+		}
+		return survey;
+	} //FOR TESTING PURPOSES
 
 	@Override
 	public void addSurvey(Survey newSurvey) {
