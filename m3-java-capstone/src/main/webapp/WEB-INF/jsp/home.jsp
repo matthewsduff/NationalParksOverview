@@ -93,10 +93,10 @@ p {
 					<td>${weather.high}</td>
 					<td>${weather.forecast}</td>
 					<td>${weather.equipment}</td>
+					<td><img src="img/weather/${weather.forecast}.png"></td>
 					<td>${weather.temperatureWarnings}</td>
 					</tr>
-
-										
+												
 					</c:if>
 				</c:forEach>
 				</table>
