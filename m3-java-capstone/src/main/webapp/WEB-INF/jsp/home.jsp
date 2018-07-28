@@ -31,6 +31,7 @@
 }
 
 .panel {
+	margin-left: 30px;
 	padding: 0 18px;
 	display: none;
 	background-color: white;
@@ -84,13 +85,13 @@ p {
 				<p>State: ${park.state}</p>
 				<br>
 				<table class = "weather">
-				<tr><th>low temp:</th><th>high temp:</th><th>Forecast:</th>
+				<tr><th>low temp:F/C</th><th>high temp:F/C</th><th>Forecast:</th><th>Recommendation:</th>
 				
 				</tr>
 				<c:forEach items="${weather}" var="weather">
 				<c:if test = "${park.parkCode == weather.parkCode}">
-					<tr><td>${weather.low}</td>
-					<td>${weather.high}</td>
+					<tr><td>${weather.low} / ${weather.celLow}</td>
+					<td>${weather.high} / ${weather.celHigh}</td>
 					<td>${weather.forecast}</td>
 					<td>${weather.equipment}</td>
 					<td><img src="img/weather/${weather.forecast}.png"></td>

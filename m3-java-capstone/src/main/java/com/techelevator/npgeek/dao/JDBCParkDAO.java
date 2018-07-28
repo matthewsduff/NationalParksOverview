@@ -68,6 +68,8 @@ public class JDBCParkDAO implements ParkDAO {
 		
 		theWeather.setEquipment(results.getString("forecast"));
 		theWeather.setTemperatureWarnings(results.getInt("low"),results.getInt("high"));
+		theWeather.setCelLow(results.getInt("low"));
+		theWeather.setCelHigh(results.getInt("high"));
 
 		
 		return theWeather;
