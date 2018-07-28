@@ -5,7 +5,9 @@ public class Weather {
 	private String parkCode;
 	private int fiveDayForecastValue;
 	private int low;
+	private int celLow;
 	private int high;
+	private int celHigh;
 	private String imageName;
 	private String forecast;
 	private String equipment;
@@ -13,6 +15,32 @@ public class Weather {
 	
 	public Weather() {
 		
+	}
+	
+	
+	public int getCelLow() {
+		return celLow;
+	}
+
+	public int setCelLow(int low) {
+		
+		double convertedTemp = (low - 32) / 1.8;
+		
+		
+		return this.celLow =(int)convertedTemp;
+		
+		
+	}
+
+	public int getCelHigh() {
+		return celHigh;
+	}
+
+	public int setCelHigh(int igh) {
+		double convertedTemp = (low - 32) / 1.8;
+		
+		
+		return this.celHigh =(int)convertedTemp;
 	}
 	
 	public String setEquipment(String forecast) {
@@ -50,7 +78,7 @@ public class Weather {
 		if(this.low < 20) {
 			results = "be aware of exteme cold and frigid conditions";
 		}
-		if(this.low > 75) {
+		if(this.high > 75) {
 			results = "be aware of extreme heat, be sure to bring an extra gallon of water";
 		}
 		if(this.high - this.low > 20) {
