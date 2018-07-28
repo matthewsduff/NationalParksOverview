@@ -50,17 +50,19 @@ public class SeleniumTest {
 		
 		
 		
-		WebElement emailField = webDriver.findElement(By.className("label"));
+		WebElement emailField = webDriver.findElement(By.className("email"));
 		// The sendKeys(...) method can be used to simulate typing in a field
+		emailField.click();
 		emailField.sendKeys("Hankey@css.com");
 		// To interact with a <select> element, wrap the WebElement in a Select object
-		Select alLevel = new Select(webDriver.findElement(By.className("selectAL")));
+		Select alLevel = new Select(webDriver.findElement(By.name("activitylevel")));
 		alLevel.selectByVisibleText("Active");
-
-		WebElement nextPage = webDriver.findElement(By.xpath("/surveyResults"));
+		
+		WebElement submitLink = webDriver.findElement(By.id("submit"));
+		submitLink.click();
+		//WebElement nextPage = webDriver.findElement(By.xpath("/surveyResults"));
 		WebElement popPark = webDriver.findElement(By.className("labelPopularParks"));
 		Assert.assertEquals("Most popular parks:", popPark.getText());
 
-		
 }
 }

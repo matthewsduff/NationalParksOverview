@@ -24,7 +24,7 @@
 	<header>
 	
 		<div class = "navBar"><c:url var="logoImgSrc" value="/img/park.png" />
-		<img src="${logoImgSrc}" alt="National Parks logo" style="width:40%"></div>
+		<a href="home"><img src="${logoImgSrc}" alt="National Parks logo" style="width:40%"></a></div>
 		
 		
 

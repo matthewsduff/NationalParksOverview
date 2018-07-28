@@ -84,7 +84,7 @@
 			</tr>
 			<tr>
 
-				<td class="selectAL">Please select your activity level:</td>
+				<td>Please select your activity level:</td>
 				<td><select name="activitylevel">
 						<option value="Inactive">Inactive</option>
 						<option value="Sedentary">Sedentary</option>
@@ -93,10 +93,10 @@
 				</select></td>
 			</tr>
 			<tr>
-				<td class="label">Please enter your email:</td>
-				<td><input type="text" name="emailaddress" placeholder = "fake_email@example.com" /></td>
+				<td>Please enter your email:</td>
+				<td ><input class ="email" type="text" name="emailaddress" placeholder = "fake_email@example.com" /></td>
 			</tr>
-			<tr><td><input type = "submit" value = "Submit"/></td></tr>
+			<tr><td><input type = "submit" value = "Submit" id ="submit"/></td></tr>
 		</table>
 	</form>
 
