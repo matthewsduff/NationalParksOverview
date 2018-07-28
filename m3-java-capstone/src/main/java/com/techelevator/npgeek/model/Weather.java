@@ -36,8 +36,8 @@ public class Weather {
 		return celHigh;
 	}
 
-	public int setCelHigh(int igh) {
-		double convertedTemp = (low - 32) / 1.8;
+	public int setCelHigh(int high) {
+		double convertedTemp = (high - 32) / 1.8;
 		
 		
 		return this.celHigh =(int)convertedTemp;

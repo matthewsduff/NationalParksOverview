@@ -44,6 +44,8 @@ p {
 </style>
 <head>
 <title>Home page</title>
+<c:url var="stylesheetHref" value="/css/npgeekCSS.css" />
+<link rel="stylesheet" href="${stylesheetHref}">
 </head>
 <body>
 	<div>
@@ -67,39 +69,64 @@ p {
 
 
 
-				<p>${park.parkName}</p>
-				<p>Description: ${park.parkDescription}</p>
-				<p>Acreage: ${park.acreage}</p>
-				<p>Elevation In Feet: ${park.elevationInFeet}</p>
-				<p>Miles of Trail: ${park.milesOfTrail}</p>
-				<p>Number of Campsites: ${park.numberOfCampsites}</p>
-				<p>Climate: ${park.climate}</p>
-				<p>Founded: ${park.yearFounded}</p>
-				<p>Annual Visitor Count: ${park.annualVisitorCount}</p>
-				<p>
-					<em>"${park.inspirationalQuote}" </em> -
-					${park.inspirationalQuoteSource}
-				</p>
-				<p>Entry Fee: $${park.entryFee}</p>
-				<p>Number of Animal Species: ${park.numberOfAnimalSpecies}</p>
-				<p>State: ${park.state}</p>
-				<br>
-				<table class = "weather">
-				<tr><th>low temp:F/C</th><th>high temp:F/C</th><th>Forecast:</th><th>Recommendation:</th>
-				
-				</tr>
-				<c:forEach items="${weather}" var="weather">
-				<c:if test = "${park.parkCode == weather.parkCode}">
-					<tr><td>${weather.low} / ${weather.celLow}</td>
-					<td>${weather.high} / ${weather.celHigh}</td>
-					<td>${weather.forecast}</td>
-					<td>${weather.equipment}</td>
-					<td><img src="img/weather/${weather.forecast}.png"></td>
-					<td>${weather.temperatureWarnings}</td>
+				<table width="1100px">
+					<tr>
+						<td id = "parkName">${park.parkName}</td>
 					</tr>
-												
-					</c:if>
-				</c:forEach>
+					<tr>
+						<td>State: ${park.state}</td>
+					</tr>
+					<tr>
+						<td width="1200px">Description: ${park.parkDescription}</td>
+					</tr>
+					<tr>
+						<td><em>"${park.inspirationalQuote}" </em> -
+							${park.inspirationalQuoteSource}</td>
+					</tr>
+				</table>
+				<table width="1100px">
+					<tr>
+						<td>Acreage: ${park.acreage}</td>
+						<td>Elevation In Feet: ${park.elevationInFeet}</td>
+						<td>Miles of Trail: ${park.milesOfTrail}</td>
+					</tr>
+
+					<tr>
+						<td>Number of Campsites: ${park.numberOfCampsites}</td>
+						<td>Climate: ${park.climate}</td>
+						<td>Founded: ${park.yearFounded}</td>
+					</tr>
+					<tr>
+						<td>Annual Visitor Count: ${park.annualVisitorCount}</td>
+						<td>Entry Fee: $${park.entryFee}</td>
+						<td>Number of Animal Species: ${park.numberOfAnimalSpecies}</td>
+					</tr>
+
+				</table>
+				<br>
+				
+				
+				<table class="weather">
+					<tr>
+						<th>low temp:F/C</th>
+						<th>high temp:F/C</th>
+						<th>Forecast:</th>
+						<th>Recommendation:</th>
+
+					</tr>
+					<c:forEach items="${weather}" var="weather">
+						<c:if test="${park.parkCode == weather.parkCode}">
+							<tr>
+								<td>${weather.low}/${weather.celLow}</td>
+								<td>${weather.high}/${weather.celHigh}</td>
+								<td>${weather.forecast}</td>
+								<td>${weather.equipment}</td>
+								<td><img src="img/weather/${weather.forecast}.png" height = "15%" width = "15%"></td>
+								<td>${weather.temperatureWarnings}</td>
+							</tr>
+
+						</c:if>
+					</c:forEach>
 				</table>
 
 			</div>
