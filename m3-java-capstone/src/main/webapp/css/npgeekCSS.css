@@ -1,0 +1,41 @@
+td.parkName{
+font-size: 500px;	
+}
+
+.accordion {
+	color: white;
+	font-size: 4em;
+	text-transform: uppercase;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	text-align: center;
+	transition: 2s;
+	height: 400px;
+	width: 1200px;
+	margin: 0, 0, 0, 10px;
+}
+
+.button:hover {
+	opacity: 1
+}
+
+.active, .accordion:hover {
+	background-color: white;
+	opacity: 1:
+}
+
+.panel {
+	margin-left: 30px;
+	padding: 0 18px;
+	display: none;
+	background-color: white;
+	overflow: hidden;
+}
+
+td {
+	font-family: Helvetica;
+}

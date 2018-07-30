@@ -17,8 +17,6 @@
 		National Parks 
 	  	<c:if test="${param.subTitle != null}"> - <c:out value="${param.subTitle}"/></c:if>
 	</title>
-	<c:url var="stylesheetHref" value="/css/npgeekCSS.css" />
-	<link rel="stylesheet" href="${stylesheetHref}">
 </head>
 <body>
 	<header>
