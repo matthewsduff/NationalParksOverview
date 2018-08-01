@@ -3,7 +3,12 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <div class="main_content">
-
+		
+		<br />
+		<br />
+		<br />
+		<br /><br />
+		
 		<table>
 			<tr>
 				<td class="labelPopularParks">Most popular parks:</td>
