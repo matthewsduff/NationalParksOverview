@@ -12,3 +12,7 @@ var acc = document.getElementsByClassName("accordion");
 				}
 			});
 		}
+		
+		$(".tempButton").on("click", function (e) {
+	        $(".temp").toggleClass("hidden");
+	    });

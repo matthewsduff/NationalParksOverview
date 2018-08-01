@@ -4,6 +4,8 @@
 	<link rel="stylesheet" type = "text/css" href="css/npgeekCSS.css" />
 
 	<div>
+	<br />
+	<br />
 		<c:url var="formAction" value="/greeting" />
 
 		<c:forEach items="${park}" var="park">
@@ -47,11 +49,11 @@
 
 				</table>
 				<br>
-
+<button class="tempButton">Temp converter</button>
 				<table class="weather">
 					<tr>
-						<th width="50px">low temp:F/C</th>
-						<th width="50px">high temp:F/C</th>
+						<th width="50px">low temp:</th>
+						<th width="50px">high temp:</th>
 						<th width="50px">Forecast:</th>
 						<th width="50px"></th>
 						<th width="600px">Recommendation:</th>
@@ -61,8 +63,10 @@
 					<c:forEach items="${weather}" var="weather">
 						<c:if test="${park.parkCode == weather.parkCode}">
 							<tr>
-								<td>${weather.low}/${weather.celLow}</td>
-								<td>${weather.high}/${weather.celHigh}</td>
+								<td class="temp hidden">C° ${weather.celLow}</td>
+								<td class="temp">F° ${weather.low}</td>
+								<td class="temp hidden">C° ${weather.celHigh}</td>
+								<td class="temp">F° ${weather.high}</td>
 								<td>${weather.forecast}</td>
 								<td><img src="img/weather/${weather.forecast}.png"
 									height="25px" width="Auto"></td>

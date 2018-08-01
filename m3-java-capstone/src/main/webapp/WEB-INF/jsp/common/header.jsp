@@ -17,6 +17,7 @@
 		National Parks 
 	  	<c:if test="${param.subTitle != null}"> - <c:out value="${param.subTitle}"/></c:if>
 	</title>
+	<script src="JavaScript/jquery-3.1.0.js"></script>
 </head>
 <body>
 	<header>
